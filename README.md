@@ -1,14 +1,60 @@
-<h1> Netflix Movie Recommender </h1>
+# 🎬 Netflix Movie Recommender
 
+Welcome to the **Netflix Movie Recommender** — a lightweight app that helps you find similar movies based on your favorite pick! Whether you're into thrillers, rom-coms, or mind-bending sci-fi, this app aims to make your next Netflix binge just a click away.
 
-The system recommends 10 movies when you input a movie you once enjoyed on Netflix. The dataset is a public dataset that can be found on kaggle. I used python libraries such as pandas, sklearn and nltk. Pandas is used for the preprocessing while nltk is used for the text preprocessing. The words were lemmatized(considering the part of speech) and then vectorized (using tfidf vectorizer). Cosine similarity is used to measure the distance between the vector arrays and as such it arranges them in descending order and recommends the first 10.
+> _"Built in just 30 minutes during a live demo, but ready to help you all night long."_
 
-<h3> How to run locally on your system </h3>
+---
 
+## 💡 About This Project
 
-1. Copy the python code and make sure it runs in your jupyter notebook
-2. Copy the deploy code in your vscode
-3. In your terminal, type streamlit run deploy.py and then enter
-4. Click on the link provided to make it run
-5. Make sure to have all file saved. Including the pickle files
+This project was created during the **Google Developer Student Clubs (GDSC)** **Build with AI** event — a dynamic, hands-on session where participants explored the exciting intersection of artificial intelligence and real-world use cases.
 
+I was invited to speak and build a mini AI-powered solution, and in under 30 minutes, we developed a working **movie recommendation system** using:
+
+- **Pandas** and **scikit-learn** for data handling and similarity computation
+- **Pickle** for saving precomputed similarity matrices
+- **Streamlit** for the web interface
+- A splash of ✨ enthusiasm + caffeine
+
+---
+
+## 🚀 Try It Live
+
+Click here to test the app:  
+👉 [Netflix Movie Recommender on Streamlit](https://recommendmovi.streamlit.app/)
+
+---
+
+## 🧠 How It Works
+
+1. The app uses a dataset of movies and extracts relevant features like genres, keywords, cast, and crew.
+2. It vectorizes this information using **TF-IDF** and calculates **cosine similarity** between movies.
+3. When a user selects a movie, the app recommends the top 5 most similar titles.
+
+---
+
+## 📦 Tech Stack
+
+- `Python`
+- `Pandas`, `Scikit-learn`, `Pickle`
+- `Streamlit` (for UI)
+
+---
+
+## 🧰 Setup Locally
+
+```bash
+# Clone the repo
+git clone https://github.com/Qudirah/Netflix-movie-recommender.git
+cd Netflix-movie-recommender
+
+# Set up virtual env (optional but recommended)
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the app
+streamlit run deploy.py
