@@ -8,34 +8,6 @@ from dotenv import load_dotenv
 load_dotenv()  # loads variables from .env into environment
 
 API_KEY = os.getenv("API_KEY")  
-
-def download_from_gdrive(file_id, destination):
-    URL = "https://docs.google.com/uc?export=download"
-
-    session = requests.Session()
-    response = session.get(URL, params={'id': file_id}, stream=True)
-
-    # Check for warning token
-    def get_confirm_token(resp):
-        for key, value in resp.cookies.items():
-            if key.startswith('download_warning'):
-                return value
-        return None
-
-    token = get_confirm_token(response)
-
-    if token:
-        response = session.get(URL, params={'id': file_id, 'confirm': token}, stream=True)
-
-    # Write file
-    with open(destination, "wb") as f:
-        for chunk in response.iter_content(32768):
-            if chunk:
-                f.write(chunk)
-
-# Replace with your actual file ID and destination filename
-download_from_gdrive("1ahiS04efmIFmitL9QxwQbrYTbnl_JW8u", "similarity.pkl")
-
 # --- Function to fetch poster
 def fetch_poster(movie_id):
     url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key={API_KEY}&language=en-US"
